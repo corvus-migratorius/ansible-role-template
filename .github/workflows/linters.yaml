@@ -30,7 +30,7 @@ jobs:
           environment.ci.yml
         shell: micromamba-shell {0}
 
-      - name: Check the project with YAMLLint
+      - name: Run ansible-lint
         run: ansible-lint -c .ansible-lint
         shell: micromamba-shell {0}
 
