@@ -1,0 +1,36 @@
+---
+name: linters
+
+on:
+  pull_request:
+    branches: [ "master" ]
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  ansible-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          micromamba-version: '1.5.8-0'
+          environment-file: environment.ci.yml
+          init-shell: bash
+          post-cleanup: 'all'
+
+      - name: Check environment files with YAMLLint
+        run: >
+          yamllint
+          environment.yml
+          environment.ci.yml
+        shell: micromamba-shell {0}
+
+      - name: Check the project with YAMLLint
+        run: ansible-lint -c .ansible-lint
+        shell: micromamba-shell {0}
+
