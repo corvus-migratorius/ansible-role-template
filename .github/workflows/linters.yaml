@@ -23,6 +23,10 @@ jobs:
           init-shell: bash
           post-cleanup: 'all'
 
+      - name: "Install role dependencies"
+        run: ansible-galaxy install -r requirements.yml
+        shell: micromamba-shell {0}
+
       - name: Check workflow files themselves with ActionLint
         run: actionlint
         shell: micromamba-shell {0}
