@@ -1,0 +1,21 @@
+---
+name: kics
+on:
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  kics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Check out source code
+
+      - name: run a KICS scan
+        uses: checkmarx/kics-github-action@94469746ec2c43de89a42fb9d2a80070f5d25b16
+        with:
+          path: .
+          token: ${{ secrets.GITHUB_TOKEN }}
+          output_path: myResults/

@@ -12,6 +12,7 @@ jobs:
   molecule:
     name: molecule
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     strategy:
       matrix:
@@ -22,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: mamba-org/setup-micromamba@v2
+      - uses: mamba-org/setup-micromamba@ab6bf8bf7403e8023a094abeec19d6753bdc143e
         with:
           micromamba-version: '1.5.8-0'
           environment-file: conda.dev.yml
