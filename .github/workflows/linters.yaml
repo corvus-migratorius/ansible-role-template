@@ -19,7 +19,7 @@ jobs:
       - uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: '1.5.8-0'
-          environment-file: environment.ci.yml
+          environment-file: conda.dev.yml
           init-shell: bash
           post-cleanup: 'all'
 
@@ -34,8 +34,8 @@ jobs:
       - name: Check environment files with YAMLLint
         run: >
           yamllint
-          environment.yml
-          environment.ci.yml
+          conda.dev.yml
+          conda.prod.yml
         shell: micromamba-shell {0}
 
       - name: Run ansible-lint
