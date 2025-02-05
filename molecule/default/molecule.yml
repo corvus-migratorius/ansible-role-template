@@ -7,7 +7,7 @@ driver:
 
 platforms:
   - name: ubuntu
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2404}-ansible:latest
     pre_build_image: true
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
