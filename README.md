@@ -7,7 +7,7 @@ Template for Ansible role monorepos.
 
 - `meta/main.yml`
 - Conda/Mamba manifests
-- this README =)
+- this README =) including *the name at the top* and *maintainers*.
 
 Requirements
 ------------
