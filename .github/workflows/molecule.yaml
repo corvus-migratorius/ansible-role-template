@@ -22,7 +22,7 @@ jobs:
           - ubuntu2004
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: mamba-org/setup-micromamba@d17c2171caa36ec145ac7e4658406a66d9af236d
         with:
